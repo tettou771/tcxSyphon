@@ -1,0 +1,11 @@
+# Build directories
+build/
+build-*/
+bin/*
+!bin/data/
+
+# IDE
+.vscode/
+.vs/
+.cache/
+.DS_Store
