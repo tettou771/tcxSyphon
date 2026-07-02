@@ -9,7 +9,7 @@
 namespace trussc { class Texture; class Fbo; }
 namespace tc = trussc;
 
-namespace tcx {
+namespace tcx::syphon {
 
 // Publishes a GPU texture to other applications via Syphon (macOS only).
 //
@@ -51,4 +51,14 @@ private:
     std::unique_ptr<Impl> impl_;
 };
 
-} // namespace tcx
+} // namespace tcx::syphon
+
+// -----------------------------------------------------------------------------
+// Backward compatibility. The canonical namespace is now `tcx::syphon`. These
+// silent aliases keep older code compiling: flat `tcx::SyphonServer` and legacy
+// `tc::SyphonServer` / `trussc::SyphonServer`. DEPRECATED — removed in v1.0.0.
+// (No [[deprecated]] attribute: under the usual `using namespace tc;` it would
+//  warn on idiomatic unqualified use too. See tcxSyphon README for migration.)
+// -----------------------------------------------------------------------------
+namespace tcx    { using syphon::SyphonServer; } // deprecated: remove at v1.0.0
+namespace trussc { using tcx::syphon::SyphonServer; } // deprecated: remove at v1.0.0

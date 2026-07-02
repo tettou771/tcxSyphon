@@ -9,7 +9,7 @@
 using namespace std;
 using namespace tc;
 
-namespace tcx {
+namespace tcx::syphon {
 
 struct SyphonServer::Impl {
     SyphonMetalServer *server = nil;
@@ -100,4 +100,4 @@ bool SyphonServer::hasClients() const {
     return impl_->server ? (bool)[impl_->server hasClients] : false;
 }
 
-} // namespace tcx
+} // namespace tcx::syphon

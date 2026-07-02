@@ -9,7 +9,7 @@
 namespace trussc { class Texture; }
 namespace tc = trussc;
 
-namespace tcx {
+namespace tcx::syphon {
 
 // One entry from SyphonClient::listServers(). Public fields with convenience
 // getters, matching the TrussC device-info convention (VideoDeviceInfo etc.).
@@ -74,4 +74,21 @@ private:
     std::unique_ptr<Impl> impl_;
 };
 
-} // namespace tcx
+} // namespace tcx::syphon
+
+// -----------------------------------------------------------------------------
+// Backward compatibility. The canonical namespace is now `tcx::syphon`. These
+// silent aliases keep older code compiling: flat `tcx::SyphonClient` /
+// `tcx::SyphonServerInfo` and legacy `tc::` / `trussc::` spellings. DEPRECATED —
+// removed in v1.0.0. (No [[deprecated]] attribute: under the usual
+// `using namespace tc;` it would warn on idiomatic unqualified use too. See
+// tcxSyphon README for migration.)
+// -----------------------------------------------------------------------------
+namespace tcx {
+    using syphon::SyphonClient;      // deprecated: remove at v1.0.0
+    using syphon::SyphonServerInfo;  // deprecated: remove at v1.0.0
+}
+namespace trussc {
+    using tcx::syphon::SyphonClient;      // deprecated: remove at v1.0.0
+    using tcx::syphon::SyphonServerInfo;  // deprecated: remove at v1.0.0
+}

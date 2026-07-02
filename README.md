@@ -65,4 +65,4 @@ git submodule update --init --recursive
 
 ## License
 
-MIT (see `LICENSE`). Bundles the Syphon Framework (BSD-style) as a submodule.
+MIT (see `LICENSES.md`). Bundles the Syphon Framework (BSD-style) as a submodule.

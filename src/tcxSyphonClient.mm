@@ -12,7 +12,7 @@
 using namespace std;
 using namespace tc;
 
-namespace tcx {
+namespace tcx::syphon {
 
 namespace {
 
@@ -179,4 +179,4 @@ string SyphonClient::getServerName() const { return impl_->serverName; }
 int SyphonClient::getWidth() const { return impl_->width; }
 int SyphonClient::getHeight() const { return impl_->height; }
 
-} // namespace tcx
+} // namespace tcx::syphon
